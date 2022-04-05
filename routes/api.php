@@ -1,19 +1,20 @@
 <?php
 
+use App\Http\Controllers\Api\BookingsController;
+use App\Http\Controllers\Api\ChairsController;
+use App\Http\Controllers\Api\GenresController;
+use App\Http\Controllers\Api\MoviesController;
+use App\Http\Controllers\Api\RoomsController;
+use App\Http\Controllers\Api\ShowsController;
+use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::apiResource('movie', MoviesController::class);
+Route::apiResource('genre', GenresController::class);
+Route::apiResource('room', RoomsController::class);
+Route::apiResource('show', ShowsController::class);
+Route::apiResource('chair', ChairsController::class);
+Route::apiResource('user', UsersController::class);
+Route::apiResource('booking', BookingsController::class);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
