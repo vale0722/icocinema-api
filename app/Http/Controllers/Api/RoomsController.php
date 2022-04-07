@@ -29,7 +29,7 @@ class RoomsController extends Controller
     public function update(Request $request, Room $room)
     {
         $room->number = $request['number'];
-        $room>save();
+        $room->save();
 
         return RoomsResource::make($room);
     }
