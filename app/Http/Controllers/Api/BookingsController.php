@@ -21,7 +21,7 @@ class BookingsController extends Controller
         $booking = new Booking();
         $booking->user_id = $request['user_id'];
         $booking->show_id = $request['show_id'];
-        $booking->chair_id = $request['chair_id'];
+        $booking->quantity = $request['quantity'];
         $booking->save();
 
         return BookingsResource::make($booking)->response()->setStatusCode(201);

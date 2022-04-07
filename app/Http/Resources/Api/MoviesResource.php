@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MoviesResource extends JsonResource
@@ -10,7 +11,7 @@ class MoviesResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @return array|Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
@@ -25,6 +26,7 @@ class MoviesResource extends JsonResource
             'thriller' => $this->thriller,
             'release_date' => $this->release_date,
             'genre_id' => $this->genre_id,
+            'shows' => ShowsResource::collection($this->shows),
             'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
             'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),
         ];

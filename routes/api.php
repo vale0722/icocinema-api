@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('guest/movies', [GuestMoviesController::class, 'index'])->name('guest.movies');
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/me', [AuthController::class, 'me'])->name('auth.me');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout.api');

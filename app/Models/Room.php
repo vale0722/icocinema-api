@@ -12,6 +12,7 @@ class Room extends Model
 
     protected $fillable = [
         'number',
+        'capacity'
     ];
 
      public function shows(): HasMany
