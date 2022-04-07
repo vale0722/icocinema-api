@@ -20,15 +20,17 @@ class RoomsController extends Controller
     {
         $room = new Room();
         $room->number = $request['number'];
+        $room->quantity = $request['quantity'];
         $room->save();
 
         return RoomsResource::make($room)->response()->setStatusCode(201);
     }
 
 
-    public function update(Request $request, Room $room)
+    public function update(Request $request, Room $room): RoomsResource
     {
         $room->number = $request['number'];
+        $room->quantity = $request['quantity'];
         $room->save();
 
         return RoomsResource::make($room);
