@@ -11,6 +11,7 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('value');
             $table->foreign('user_id')
                 ->on('users')
                 ->references('id');
