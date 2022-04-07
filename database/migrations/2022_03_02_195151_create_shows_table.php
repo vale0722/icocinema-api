@@ -20,10 +20,6 @@ class CreateShowsTable extends Migration
             $table->foreign('movie_id')
                 ->on('movies')
                 ->references('id');
-            $table->unsignedBigInteger('chair_id');
-            $table->foreign('chair_id')
-                ->on('chairs')
-                ->references('id');
             $table->timestamps();
         });
     }

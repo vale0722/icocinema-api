@@ -18,10 +18,7 @@ class CreateBookingsTable extends Migration
             $table->foreign('show_id')
                 ->on('shows')
                 ->references('id');
-             $table->unsignedBigInteger('chair_id');
-            $table->foreign('chair_id')
-                ->on('chairs')
-                ->references('id');
+            $table->unsignedBigInteger('quantity');
             $table->timestamps();
         });
     }
