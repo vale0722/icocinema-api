@@ -19,6 +19,8 @@ class RoomsResource extends JsonResource
             'id' => $this->id,
             'number' => $this->number,
             'quantity' => $this->quantity,
+            'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
+            'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),
         ];
     }
 }

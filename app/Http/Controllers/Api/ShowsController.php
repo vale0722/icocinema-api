@@ -23,6 +23,7 @@ class ShowsController extends Controller
         $show->show_hour = $request['show_hour'];
         $show->room_id = $request['room_id'];
         $show->movie_id = $request['movie_id'];
+        $show->quantity = $show->room->quantity;
         $show->save();
 
         return ShowsResource::make($show)->response()->setStatusCode(201);

@@ -20,6 +20,7 @@ class ShowsResource extends JsonResource
             'show_day' => (new Carbon($this->show_day))->format('Y-m-d'),
             'show_hour' => $this->show_hour,
             'room' => $this->room->number,
+            'quantity' => $this->quantity,
             'movie' => $this->movie->name,
             'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
             'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),

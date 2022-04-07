@@ -20,6 +20,7 @@ class CreateShowsTable extends Migration
             $table->foreign('movie_id')
                 ->on('movies')
                 ->references('id');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }
