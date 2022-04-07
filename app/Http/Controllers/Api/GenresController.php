@@ -19,7 +19,15 @@ class GenresController extends Controller
     public function store(Request $request): JsonResponse
     {
         $genre = new Genre();
-        $genre->name = $request['name'];
+        $genre->name = $request->name;
+        $genre->save();
+
+        return GenresResource::make($genre)->response()->setStatusCode(201);
+    }
+
+    public function update(Request $request, Genre $genre): JsonResponse
+    {
+        $genre->name = $request->name;
         $genre->save();
 
         return GenresResource::make($genre)->response()->setStatusCode(201);

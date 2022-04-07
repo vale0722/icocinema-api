@@ -17,6 +17,8 @@ class GenresResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
+            'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),
         ];
     }
 }
