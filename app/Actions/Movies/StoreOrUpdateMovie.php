@@ -18,6 +18,7 @@ class StoreOrUpdateMovie extends StoreOrUpdateModel
         $this->model->duration = $this->data['duration'];
         $this->model->description = $this->data['description'];
         $this->model->min_age = $this->data['min_age'];
+        $this->model->thriller = $this->data['thriller'];
         $this->model->release_date = $this->data['release_date'];
         $this->model->genre_id = $this->data['genre_id'];
 
