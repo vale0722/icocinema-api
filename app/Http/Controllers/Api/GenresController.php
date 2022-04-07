@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Genre\StoreGenreRequest;
 use App\Http\Resources\Api\GenresResource;
 use App\Models\Genre;
 use Illuminate\Http\JsonResponse;
@@ -16,10 +17,10 @@ class GenresController extends Controller
         return GenresResource::collection(Genre::paginate());
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(StoreGenreRequest $request): JsonResponse
     {
         $genre = new Genre();
-        $genre->name = $request->name;
+        $genre->name = $request->get('name');
         $genre->save();
 
         return GenresResource::make($genre)->response()->setStatusCode(201);

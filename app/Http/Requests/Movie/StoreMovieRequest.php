@@ -18,7 +18,10 @@ class StoreMovieRequest extends FormRequest
             'description' => 'string|min:20|required',
             'min_age' => 'string|required',
             'duration' => 'string|required|min:2',
-            'release_date' => 'required|date'
+            'release_date' => 'required|date',
+            'thriller' => 'required|string',
+            'image' => 'required|file',
+            'genre_id' => 'required|exists:genres,id',
         ];
     }
 }

@@ -19,7 +19,7 @@ class MoviesController extends Controller
 
     public function store(StoreMovieRequest $request): JsonResponse
     {
-        $movie = Movie::actions()->storeOrUpdate($request->validated());
+        $movie = Movie::actions()->storeOrUpdate($request->validated())->getModel();
         return MoviesResource::make($movie)->response()->setStatusCode(201);
     }
 

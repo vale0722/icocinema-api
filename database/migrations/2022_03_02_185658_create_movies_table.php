@@ -18,7 +18,7 @@ class CreateMoviesTable extends Migration
             $table->date('release_date');
             $table->string('thriller', 255);
             $table->unsignedBigInteger('genre_id');
-            $table->timestamp('disabled_at');
+            $table->timestamp('disabled_at')->nullable();
             $table->timestamps();
 
             $table->foreign('genre_id')

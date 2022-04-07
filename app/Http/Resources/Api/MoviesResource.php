@@ -17,12 +17,16 @@ class MoviesResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'category' => $this->genre->name,
             'duration' => $this->duration,
             'description' => $this->description,
             'image' => $this->image,
             'min_age' => $this->min_age,
+            'thriller' => $this->thriller,
             'release_date' => $this->release_date,
             'genre_id' => $this->genre_id,
+            'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
+            'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),
         ];
     }
 }
