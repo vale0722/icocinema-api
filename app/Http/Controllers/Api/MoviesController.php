@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Movie\StoreMovieRequest;
 use App\Http\Resources\Api\MoviesResource;
 use App\Models\Movie;
 use Illuminate\Http\JsonResponse;
@@ -16,18 +17,9 @@ class MoviesController extends Controller
         return MoviesResource::collection(Movie::paginate());
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(StoreMovieRequest $request): JsonResponse
     {
-        $movie = new Movie();
-        $movie->name = $request['name'];
-        $movie->duration = $request['duration'];
-        $movie->description = $request['description'];
-        $movie->image = $request['image'];
-        $movie->min_age = $request['min_age'];
-        $movie->release_date = $request['release_date'];
-        $movie->genre_id = $request['genre_id'];
-        $movie->save();
-
+        $movie = Movie::actions()->storeOrUpdate($request->validated());
         return MoviesResource::make($movie)->response()->setStatusCode(201);
     }
 

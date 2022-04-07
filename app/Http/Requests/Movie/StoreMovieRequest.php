@@ -14,11 +14,11 @@ class StoreMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|min:6|required',
+            'name' => 'string|min:6|required|unique:movies',
             'description' => 'string|min:20|required',
             'min_age' => 'string|required',
             'duration' => 'string|required|min:2',
-            'release_date' => 'required'
+            'release_date' => 'required|date'
         ];
     }
 }
