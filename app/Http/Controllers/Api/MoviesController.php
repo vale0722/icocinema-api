@@ -9,6 +9,7 @@ use App\Models\Movie;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use function response;
 
 class MoviesController extends Controller
 {

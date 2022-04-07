@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api\Auth;
 
-use App\Helpers\FilesHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
+use function response;
 
-class ApiAuthController extends Controller
+class AuthController extends Controller
 {
     public function register(RegisterRequest $request): JsonResponse
     {
@@ -23,8 +22,7 @@ class ApiAuthController extends Controller
 
         $request = array_merge($data, [
             'password' => Hash::make($data['password']),
-            'remember_token' => Str::random(10),
-            'photo_uri' => FilesHelper::save('users', Arr::get($data, 'photo_uri'))
+            'remember_token' => Str::random(10)
         ]);
 
         $user = User::create($request);
