@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class BookingsResource extends JsonResource
@@ -17,10 +18,12 @@ class BookingsResource extends JsonResource
         return [
             'id' => $this->id,
             'user' => $this->user->name,
-            'show' => $this->show->name,
-            'sala' => $this->show->room->number,
+            'room' => $this->show->room->number,
+            'movie' => $this->show->movie->name,
             'quantity' => $this->quantity,
-            'value' => $this->value
+            'value' => $this->value,
+            'show_day' => (new Carbon($this->show->show_day))
+                    ->format('Y-m-d') . ' ' . $this->show->show_hour
         ];
     }
 }
