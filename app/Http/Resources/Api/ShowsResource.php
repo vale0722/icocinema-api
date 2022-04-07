@@ -17,7 +17,7 @@ class ShowsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'show_day' => (new Carbon($this->show_day))->format('Y-m-d h:m:s'),
+            'show_day' => (new Carbon($this->show_day))->format('Y-m-d'),
             'show_hour' => $this->show_hour,
             'room' => $this->room->number,
             'movie' => $this->movie->name,

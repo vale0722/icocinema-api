@@ -26,7 +26,7 @@ class MoviesResource extends JsonResource
             'thriller' => $this->thriller,
             'release_date' => $this->release_date,
             'genre_id' => $this->genre_id,
-            'shows' => ShowsResource::collection($this->shows),
+            'shows' => ShowsResource::collection($this->shows()->where('show_day', '>=', now()->subDay())->get()),
             'createdAt' => $this->created_at->format('Y-m-d h:m:s'),
             'updatedAt' => $this->updated_at->format('Y-m-d h:m:s'),
         ];
